@@ -1,0 +1,39 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/colours";
+
+.videoAnalytics {
+  height: 5rem;
+  margin: variables.$margin-mobile-between-components
+    variables.$margin-mobile-LR;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid colours.$Silver;
+  border-bottom: 1px solid colours.$Silver;
+
+  &__by-channel {
+    font-weight: 700;
+    width: 50%;
+  }
+  &__views-container {
+    color: colours.$Silver;
+    width: 50%;
+  }
+  &__views-image {
+    margin-right: 1rem;
+  }
+  &__date {
+    color: colours.$Silver;
+    width: 50%;
+  }
+  &__likes-container {
+    color: colours.$Silver;
+    width: 50%;
+  }
+  &__likes-image {
+    margin-right: 1rem;
+  }
+}

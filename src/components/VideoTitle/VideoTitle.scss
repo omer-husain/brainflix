@@ -1,0 +1,13 @@
+@use "../../styles/partials/typography.scss" as type;
+@use "../../styles/partials/variables";
+@use "sass:map";
+
+.video-title {
+  font-size: map.get(type.$mobile-page-header, "text-size");
+  line-height: map.get(type.$mobile-page-header, "line-height");
+  font-weight: map.get(type.$mobile-page-header, "text-weight");
+  margin-top: variables.$margin-top-headline-mobile;
+  margin-bottom: variables.$margin-bottom-headline-mobile;
+  padding-top: variables.$margin-top-headline-mobile;
+  margin: 0 variables.$margin-mobile-LR;
+}
