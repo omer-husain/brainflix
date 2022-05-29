@@ -9,6 +9,8 @@
   font-size: map.get(t.$mobile-body-copy, "text-size");
   line-height: map.get(t.$mobile-body-copy, "line-height");
   font-weight: map.get(t.$mobile-body-copy, "text-weight");
+  border-bottom: 1px solid colours.$Silver;
+ 
 
   //   @include mixins.devices(tablet) {
   //     padding: 0 variables.$margin-tablet-LR * 5;
@@ -85,6 +87,7 @@
     background-color: colours.$BrainFlix-Blue;
     height: 40px;
     border-radius: 4px;
+    margin-bottom: 1rem;
 
     &:hover {
       background-color: colours.$BrainFlix-DarkBlack;

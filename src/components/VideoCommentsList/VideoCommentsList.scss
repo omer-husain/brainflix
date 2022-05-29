@@ -1,0 +1,82 @@
+@use "../../styles/partials/typography" as t;
+@use "../../styles/partials/colours";
+@use "../../styles/partials/variables";
+@use "sass:map";
+
+.display-comments {
+  padding: 0 variables.$margin-mobile-LR;
+  background-color: colours.$White;
+
+  font-size: map.get(t.$mobile-body-copy, "text-size");
+  line-height: map.get(t.$mobile-body-copy, "line-height");
+  font-weight: map.get(t.$mobile-body-copy, "text-weight");
+
+  //   @include mixins.devices(tablet) {
+  //     padding: 0 variables.$margin-tablet-LR * 5;
+  //     font-size: map.get(t.$body-copy, "text-size");
+  //     line-height: map.get(t.$body-copy, "line-height");
+  //     font-weight: map.get(t.$body-copy, "text-weight");
+  //   }
+
+  //   @include mixins.devices(desktop) {
+  //     padding: 0 variables.$margin-desktop-LR * 10;
+  //     font-size: map.get(d.$body-copy, "text-size");
+  //     line-height: map.get(d.$body-copy, "line-height");
+  //     font-weight: map.get(d.$body-copy, "text-weight");
+  //   }
+
+  &__card {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid colours.$Mercury;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
+
+  &__card-col1 {
+    width: 20%;
+  }
+
+  &__avatar {
+    width: 75%;
+    border-radius: 50%;
+    margin: auto 0;
+  }
+
+  &__card-col2 {
+    height: 90%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    // @include mixins.devices(tablet) {
+    //   height: 18rem;
+    // }
+  }
+
+  &__heading-row1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  &__heading-row2 {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0;
+  }
+  &__card-header {
+    display: inline-block;
+  }
+
+  &__like-button {
+    margin: 0 1rem;
+  }
+  &__likes-counter {
+    margin: 0 1rem;
+  }
+  &__delete-button {
+    margin: 0 0 0 1rem;
+  }
+}

@@ -7,6 +7,7 @@ import VideoTitle from "./components/VideoTitle/VideoTitle";
 import VideoAnalytics from "./components/VideoAnalytics/VideoAnalytics";
 import VideoDescription from "./components/VideoDescription/VideoDescription";
 import VideoCommentsForm from "./components/VideoCommentsForm/VideoCommentsForm";
+import VideoCommentsList from "./components/VideoCommentsList/VideoCommentsList";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <VideoAnalytics videoData={videoDetails[0]} />
       <VideoDescription videoData={videoDetails[0]} />
       <VideoCommentsForm videoData={videoDetails[0]} />
+      <VideoCommentsList videoData={videoDetails[0]} />
     </section>
   );
 }
