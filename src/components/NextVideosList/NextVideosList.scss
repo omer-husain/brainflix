@@ -1,0 +1,6 @@
+@use "../../styles/partials/variables";
+
+.next-videos {
+  margin: variables.$margin-mobile-between-components
+    variables.$margin-mobile-LR;
+}

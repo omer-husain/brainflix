@@ -8,6 +8,7 @@ import VideoAnalytics from "./components/VideoAnalytics/VideoAnalytics";
 import VideoDescription from "./components/VideoDescription/VideoDescription";
 import VideoCommentsForm from "./components/VideoCommentsForm/VideoCommentsForm";
 import VideoCommentsList from "./components/VideoCommentsList/VideoCommentsList";
+import NextVideosList from "./components/NextVideosList/NextVideosList";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       <VideoDescription videoData={videoDetails[0]} />
       <VideoCommentsForm videoData={videoDetails[0]} />
       <VideoCommentsList videoData={videoDetails[0]} />
+      <NextVideosList videos={videos}/>
+
+
     </section>
   );
 }
