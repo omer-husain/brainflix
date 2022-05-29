@@ -1,0 +1,93 @@
+@use "../../styles/partials/typography" as t;
+@use "../../styles/partials/colours";
+@use "../../styles/partials/variables";
+@use "sass:map";
+
+.write-comments {
+  margin: variables.$margin-mobile-between-components
+    variables.$margin-mobile-LR;
+  font-size: map.get(t.$mobile-body-copy, "text-size");
+  line-height: map.get(t.$mobile-body-copy, "line-height");
+  font-weight: map.get(t.$mobile-body-copy, "text-weight");
+
+  //   @include mixins.devices(tablet) {
+  //     padding: 0 variables.$margin-tablet-LR * 5;
+  //     font-size: map.get(t.$body-copy, "text-size");
+  //     line-height: map.get(t.$body-copy, "line-height");
+  //     font-weight: map.get(t.$body-copy, "text-weight");
+  //   }
+
+  //   @include mixins.devices(desktop) {
+  //     padding: 0 variables.$margin-desktop-LR * 10;
+  //     font-size: map.get(d.$body-copy, "text-size");
+  //     line-height: map.get(d.$body-copy, "line-height");
+  //     font-weight: map.get(d.$body-copy, "text-weight");
+  //   }
+
+  &__number {
+    font-size: map.get(t.$mobile-section-subheader, "text-size");
+    line-height: map.get(t.$mobile-section-subheader, "line-height");
+    font-weight: map.get(t.$mobile-section-subheader, "text-weight");
+  }
+
+  &__form-container {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid colours.$Mercury;
+    justify-content: space-between;
+  }
+
+  &__col1-image {
+    width: 18%;
+  }
+  &__avatar {
+    width: 5rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  &__col2-form {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__form-label {
+    margin-bottom: 4px;
+    color: colours.$Mercury;
+  }
+
+  &__comment-area {
+    width: 100%;
+    border-radius: 4px;
+    padding: 4px;
+    border: 1px solid colours.$Mercury;
+    height: 5rem;
+    resize: none;
+    margin-bottom: 1.2rem;
+    font-size: map.get(t.$mobile-body-copy, "text-size");
+    line-height: map.get(t.$mobile-body-copy, "line-height");
+    font-weight: map.get(t.$mobile-body-copy, "text-weight");
+
+    // @include mixins.devices(tablet) {
+    //   font-size: map.get(t.$body-copy, "text-size");
+    //   line-height: map.get(t.$body-copy, "line-height");
+    //   font-weight: map.get(t.$body-copy, "text-weight");
+    // }
+  }
+  &__button {
+    border: none;
+    font-size: map.get(t.$mobile-button-text, "text-size");
+    line-height: map.get(t.$mobile-button-text, "line-height");
+    font-weight: map.get(t.$mobile-button-text, "text-weight");
+    color: colours.$White;
+    background-color: colours.$BrainFlix-Blue;
+    height: 40px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: colours.$BrainFlix-DarkBlack;
+    }
+  }
+}
