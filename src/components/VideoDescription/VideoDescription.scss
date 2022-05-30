@@ -1,6 +1,11 @@
 @use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
 
 .video-description {
-  margin: variables.$margin-mobile-between-components variables.$margin-mobile-LR;
-
+  margin: variables.$margin-mobile-between-components
+    variables.$margin-mobile-LR;
+  @include mixins.devices(tablet) {
+    margin: variables.$margin-tablet-between-components
+      variables.$margin-tablet-LR;
+  }
 }

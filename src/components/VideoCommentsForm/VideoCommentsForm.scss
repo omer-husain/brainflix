@@ -2,6 +2,7 @@
 @use "../../styles/partials/colours";
 @use "../../styles/partials/variables";
 @use "sass:map";
+@use "../../styles/partials/mixins";
 
 .write-comments {
   margin: variables.$margin-mobile-between-components
@@ -10,26 +11,20 @@
   line-height: map.get(t.$mobile-body-copy, "line-height");
   font-weight: map.get(t.$mobile-body-copy, "text-weight");
   border-bottom: 1px solid colours.$Silver;
- 
 
-  //   @include mixins.devices(tablet) {
-  //     padding: 0 variables.$margin-tablet-LR * 5;
-  //     font-size: map.get(t.$body-copy, "text-size");
-  //     line-height: map.get(t.$body-copy, "line-height");
-  //     font-weight: map.get(t.$body-copy, "text-weight");
-  //   }
-
-  //   @include mixins.devices(desktop) {
-  //     padding: 0 variables.$margin-desktop-LR * 10;
-  //     font-size: map.get(d.$body-copy, "text-size");
-  //     line-height: map.get(d.$body-copy, "line-height");
-  //     font-weight: map.get(d.$body-copy, "text-weight");
-  //   }
+  @include mixins.devices(tablet) {
+    margin: variables.$margin-tablet-between-components
+      variables.$margin-tablet-LR;
+    font-size: map.get(t.$tablet-body-copy, "text-size");
+    line-height: map.get(t.$tablet-body-copy, "line-height");
+    font-weight: map.get(t.$tablet-body-copy, "text-weight");
+  }
 
   &__number {
     font-size: map.get(t.$mobile-section-subheader, "text-size");
     line-height: map.get(t.$mobile-section-subheader, "line-height");
     font-weight: map.get(t.$mobile-section-subheader, "text-weight");
+    margin-bottom: 1rem;
   }
 
   &__form-container {
@@ -37,14 +32,23 @@
     display: flex;
     border-bottom: 1px solid colours.$Mercury;
     justify-content: space-between;
+    @include mixins.devices(tablet) {
+      justify-content: flex-start;
+    }
   }
 
   &__col1-image {
     width: 18%;
+    @include mixins.devices(tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 8%;
+    }
   }
   &__avatar {
-    width: 5rem;
-    height: 4rem;
+    width: 4rem;
+    height: 3.2rem;
     border-radius: 50%;
   }
 
@@ -53,11 +57,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    @include mixins.devices(tablet) {
+      width: 100%;
+      flex-direction: row;
+      position: relative;
+    }
   }
 
   &__form-label {
     margin-bottom: 4px;
     color: colours.$Mercury;
+    @include mixins.devices(tablet) {
+      position: absolute;
+      left:8%;
+      top: -40%;
+    }
   }
 
   &__comment-area {
@@ -72,11 +86,13 @@
     line-height: map.get(t.$mobile-body-copy, "line-height");
     font-weight: map.get(t.$mobile-body-copy, "text-weight");
 
-    // @include mixins.devices(tablet) {
-    //   font-size: map.get(t.$body-copy, "text-size");
-    //   line-height: map.get(t.$body-copy, "line-height");
-    //   font-weight: map.get(t.$body-copy, "text-weight");
-    // }
+    @include mixins.devices(tablet) {
+      font-size: map.get(t.$tablet-body-copy, "text-size");
+      line-height: map.get(t.$tablet-body-copy, "line-height");
+      font-weight: map.get(t.$tablet-body-copy, "text-weight");
+      width: 70%;
+      height: 3rem;
+    }
   }
   &__button {
     border: none;
@@ -91,6 +107,11 @@
 
     &:hover {
       background-color: colours.$BrainFlix-DarkBlack;
+    
+    }
+
+    @include mixins.devices(tablet) {
+      width: 8rem;
     }
   }
 }

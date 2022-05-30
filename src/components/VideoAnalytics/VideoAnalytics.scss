@@ -1,5 +1,6 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/colours";
+@use "../../styles/partials/mixins";
 
 .videoAnalytics {
   height: 5rem;
@@ -14,13 +15,33 @@
   border-top: 1px solid colours.$Silver;
   border-bottom: 1px solid colours.$Silver;
 
+  @include mixins.devices(tablet) {
+    margin: variables.$margin-tablet-between-components
+      variables.$margin-tablet-LR;
+    justify-content: space-between;
+  }
+
+  @include mixins.devices(tablet) {
+    margin: variables.$margin-tablet-between-components;
+    border-top: 0;
+  }
+
   &__by-channel {
     font-weight: 700;
     width: 50%;
+
+    @include mixins.devices(tablet) {
+      width: 15%;
+      order: 0;
+    }
   }
   &__views-container {
     color: colours.$Silver;
     width: 50%;
+    @include mixins.devices(tablet) {
+      width: 15%;
+      order: 1;
+    }
   }
   &__views-image {
     margin-right: 1rem;
@@ -28,10 +49,18 @@
   &__date {
     color: colours.$Silver;
     width: 50%;
+    @include mixins.devices(tablet) {
+      width: 15%;
+      order: 0;
+    }
   }
   &__likes-container {
     color: colours.$Silver;
     width: 50%;
+    @include mixins.devices(tablet) {
+      width: 15%;
+      order: 1;
+    }
   }
   &__likes-image {
     margin-right: 1rem;

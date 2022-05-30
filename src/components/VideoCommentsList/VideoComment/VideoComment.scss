@@ -2,28 +2,22 @@
 @use "../../styles/partials/colours";
 @use "../../styles/partials/variables";
 @use "sass:map";
+@use "../../styles/partials/mixins";
 
 .display-comments {
-  padding: 0 variables.$margin-mobile-LR;
+  margin: 0 variables.$margin-mobile-LR;
   background-color: colours.$White;
 
   font-size: map.get(t.$mobile-body-copy, "text-size");
   line-height: map.get(t.$mobile-body-copy, "line-height");
   font-weight: map.get(t.$mobile-body-copy, "text-weight");
 
-  //   @include mixins.devices(tablet) {
-  //     padding: 0 variables.$margin-tablet-LR * 5;
-  //     font-size: map.get(t.$body-copy, "text-size");
-  //     line-height: map.get(t.$body-copy, "line-height");
-  //     font-weight: map.get(t.$body-copy, "text-weight");
-  //   }
-
-  //   @include mixins.devices(desktop) {
-  //     padding: 0 variables.$margin-desktop-LR * 10;
-  //     font-size: map.get(d.$body-copy, "text-size");
-  //     line-height: map.get(d.$body-copy, "line-height");
-  //     font-weight: map.get(d.$body-copy, "text-weight");
-  //   }
+  @include mixins.devices(tablet) {
+    margin: 0 variables.$margin-tablet-LR;
+    font-size: map.get(t.$tablet-body-copy, "text-size");
+    line-height: map.get(t.$tablet-body-copy, "line-height");
+    font-weight: map.get(t.$tablet-body-copy, "text-weight");
+  }
 
   &__card {
     width: 100%;
@@ -35,10 +29,12 @@
 
   &__card-col1 {
     width: 20%;
+    
   }
 
   &__avatar {
-    width: 75%;
+    width: 3rem;
+    height: 3.2rem;
     border-radius: 50%;
     margin: auto 0;
   }

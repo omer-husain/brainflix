@@ -1,25 +1,54 @@
-
+@use "../../../styles/partials/mixins";
+@use "../../../styles/partials/variables";
+@use "../../../styles/partials/typography" as t;
+@use "sass:map";
 
 .video-card {
-    display: flex;
-    height: 6.5rem;
-    margin: 1.5rem 0;
-  
-    &__col1 {
-      width: 35%;
-      margin-right: 1.5rem;
-    }
-  
-    &__image {
-        width: 100%;
-        height: 100%;
-        border-radius: 5%;
-    }
-    &__col2 {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+  display: flex;
+  height: 6.5rem;
+  margin: 1.5rem 0;
+
+  font-size: map.get(t.$mobile-body-copy, "text-size");
+  line-height: map.get(t.$mobile-body-copy, "line-height");
+  font-weight: map.get(t.$mobile-body-copy, "text-weight");
+
+  @include mixins.devices(tablet) {
+    font-size: map.get(t.$tablet-body-copy, "text-size");
+    line-height: map.get(t.$tablet-body-copy, "line-height");
+    font-weight: map.get(t.$tablet-body-copy, "text-weight");
+  }
+
+  &__col1 {
+    width: 35%;
+    margin-right: 1.5rem;
+    @include mixins.devices(tablet) {
+      width: 20%;
     }
   }
-  
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+  }
+  &__col2 {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include mixins.devices(tablet) {
+      width: 25%;
+    }
+  }
+
+  &__title {
+    font-size: map.get(t.$tablet-section-subheader, "text-size");
+    line-height: map.get(t.$tablet-section-subheader, "line-height");
+    font-weight: map.get(t.$tablet-section-subheader, "text-weight");
+  }
+  &__channel {
+    font-size: map.get(t.$tablet-section-header, "text-size");
+    line-height: map.get(t.$tablet-section-header, "line-height");
+    font-weight: map.get(t.$tablet-section-header, "text-weight");
+  }
+}
