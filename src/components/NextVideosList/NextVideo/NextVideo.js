@@ -1,8 +1,13 @@
-import "./NextVideo.scss"
+import "./NextVideo.scss";
 
-export default function NextVideo({ video }) {
+export default function NextVideo({ video, selectVideo }) {
   return (
-    <article className="video-card">
+    <article
+      className="video-card"
+      onClick={() => {
+        selectVideo(video.id);
+      }}
+    >
       <section className="video-card__col1">
         <img className="video-card__image" src={video.image} />
       </section>
