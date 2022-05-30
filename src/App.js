@@ -1,7 +1,6 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
 import MainVideo from "./components/MainVideo/MainVideo";
-import videos from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
 import VideoTitle from "./components/VideoTitle/VideoTitle";
 import VideoAnalytics from "./components/VideoAnalytics/VideoAnalytics";
@@ -25,6 +24,12 @@ class App extends React.Component {
     });
   };
 
+  filterVideoList = () => {
+    return this.state.videos.filter((video) => {
+      return video.id !== this.state.selectedVideo.id;
+    });
+  };
+
   render() {
     return (
       <section className="App">
@@ -35,7 +40,10 @@ class App extends React.Component {
         <VideoDescription videoData={this.state.selectedVideo} />
         <VideoCommentsForm videoData={this.state.selectedVideo} />
         <VideoCommentsList videoData={this.state.selectedVideo} />
-        <NextVideosList videos={this.state.videos} selectVideo={this.selectVideo}/>
+        <NextVideosList
+          videos={this.filterVideoList()}
+          selectVideo={this.selectVideo}
+        />
       </section>
     );
   }
