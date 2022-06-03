@@ -1,52 +1,37 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
-import Header from "./components/Header/Header";
-import MainVideo from "./components/MainVideo/MainVideo";
 import videoDetails from "./data/video-details.json";
-import VideoTitle from "./components/VideoTitle/VideoTitle";
-import VideoAnalytics from "./components/VideoAnalytics/VideoAnalytics";
-import VideoDescription from "./components/VideoDescription/VideoDescription";
-import VideoCommentsForm from "./components/VideoCommentsForm/VideoCommentsForm";
-import VideoCommentsList from "./components/VideoCommentsList/VideoCommentsList";
-import NextVideosList from "./components/NextVideosList/NextVideosList";
+import MainVideoPage from "./pages/MainVideoPage/MainVideoPage";
+import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
+
 import React from "react";
+import apiKey from "./data/api-key.json";
 
 class App extends React.Component {
-  state = {
-    videos: videoDetails,
-    selectedVideo: videoDetails[0],
-  };
-
-  selectVideo = (videoId) => {
-    this.setState({
-      selectedVideo: this.state.videos.find((video) => {
-        return video.id === videoId;
-      }),
-    });
-  };
-
-  filterVideoList = () => {
-    return this.state.videos.filter((video) => {
-      return video.id !== this.state.selectedVideo.id;
-    });
-  };
+  
 
   render() {
     return (
-      <section className="App">
-        <Header />
-        <MainVideo image={this.state.selectedVideo.image} />
-        <VideoTitle title={this.state.selectedVideo.title} />
-        <VideoAnalytics videoData={this.state.selectedVideo} />
-        <VideoDescription videoData={this.state.selectedVideo} />
-        <VideoCommentsForm videoData={this.state.selectedVideo} />
-        <VideoCommentsList videoData={this.state.selectedVideo} />
-        <NextVideosList
-          videos={this.filterVideoList()}
-          selectVideo={this.selectVideo}
-        />
-      </section>
+      <Router>
+        <section className="App">
+          <Switch>
+            <Route path="/videos/:id">
+              <MainVideoPage />
+            </Route>
+            <Route path="/upload">
+              <VideoUploadPage />
+            </Route>
+            <Route path="/">
+              <MainVideoPage />
+            </Route>
+          </Switch>
+             
+        </section>
+      </Router>
     );
   }
 }
 
 export default App;
+
+// <Route exact path="/props-through-render" render={(props) => <PropsPage {...props} title={`Props through render`} />} />

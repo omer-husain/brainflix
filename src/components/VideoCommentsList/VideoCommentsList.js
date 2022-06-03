@@ -1,5 +1,5 @@
 import "./VideoCommentsList.scss";
-import VideoComment from "./VideoComment/VideoComment";
+import VideoComment from "../VideoComment/VideoComment";
 
 export default function VideoCommentsList({ videoData }) {
   console.log(videoData.comments);

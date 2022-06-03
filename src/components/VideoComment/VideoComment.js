@@ -1,4 +1,4 @@
-import greyAvator from "../../../assets/images/grey1.png";
+import greyAvator from "../../assets/images/grey1.png";
 
 export default function VideoComment({ comment }) {
   console.log("videcomment is run");
@@ -14,10 +14,11 @@ export default function VideoComment({ comment }) {
       <section className="display-comments__card-col2">
         <section className="display-comments__heading-row1">
           <h3 className="display-comments__card-header">{comment.name}</h3>
-          <time className="display-comments__date">{new Date(comment.timestamp).toLocaleDateString()}</time>
+          <time className="display-comments__date">
+            {new Date(comment.timestamp).toLocaleDateString()}
+          </time>
         </section>
         <p class="display-comments__comment-text">{comment.comment}</p>
-        
       </section>
     </article>
   );
