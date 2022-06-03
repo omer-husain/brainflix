@@ -1,20 +1,30 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import MainVideo from "../../components/MainVideo/MainVideo"
-import videoDetails from "../../data/video-details.json";
+import MainVideo from "../../components/MainVideo/MainVideo";
 import VideoTitle from "../../components/VideoTitle/VideoTitle";
 import VideoAnalytics from "../../components/VideoAnalytics/VideoAnalytics";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
 import VideoCommentsForm from "../../components/VideoCommentsForm/VideoCommentsForm";
 import VideoCommentsList from "../../components/VideoCommentsList/VideoCommentsList";
 import NextVideosList from "../../components/NextVideosList/NextVideosList";
+import { getVideos, getVideoWithId } from "../../api/apiCalls";
 
 export default class MainVideoPage extends React.Component {
-
   state = {
-    videos: videoDetails,
-    selectedVideo: videoDetails[0],
+    videos: [],
+    selectedVideo: null,
   };
+
+  async componentDidMount() {
+    let { data: videosFromApi } = await getVideos();
+    let { data: video } = await getVideoWithId(videosFromApi[0].id);
+
+    console.log(video);
+    this.setState({
+      videos: videosFromApi,
+      selectedVideo: video,
+    });
+  }
 
   selectVideo = (videoId) => {
     this.setState({
@@ -30,9 +40,9 @@ export default class MainVideoPage extends React.Component {
     });
   };
 
-
   render() {
-    return (
+    console.log(this.state.selectedVideo);
+    return this.state.selectedVideo ? (
       <>
         <Header />
         <MainVideo image={this.state.selectedVideo.image} />
@@ -46,6 +56,8 @@ export default class MainVideoPage extends React.Component {
           selectVideo={this.selectVideo}
         />
       </>
+    ) : (
+      <span>Loading page</span>
     );
   }
 }
