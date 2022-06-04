@@ -8,24 +8,17 @@ import React from "react";
 import apiKey from "./data/api-key.json";
 
 class App extends React.Component {
-  
-
   render() {
     return (
       <Router>
         <section className="App">
           <Switch>
-            <Route path="/videos/:id">
-              <MainVideoPage />
-            </Route>
-            <Route path="/upload">
-              <VideoUploadPage />
-            </Route>
-            <Route path="/">
-              <MainVideoPage />
-            </Route>
+            <Route path="/" exact component={MainVideoPage} />
+
+            <Route path="/videos/:videoId" component={MainVideoPage} />
+
+            <Route path="/upload" component={VideoUploadPage} />
           </Switch>
-             
         </section>
       </Router>
     );

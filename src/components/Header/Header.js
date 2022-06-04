@@ -3,12 +3,15 @@ import logo from "../../assets/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import searchIcon from "../../assets/icons/search.svg";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Header() {
   return (
     <section className="header">
       <nav className="header__nav">
-        <img className="header__logo" src={logo}></img>
+        <Link to="/">
+          <img className="header__logo" src={logo}></img>
+        </Link>
       </nav>
 
       <form className="header__form">

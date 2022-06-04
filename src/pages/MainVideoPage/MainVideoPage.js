@@ -41,6 +41,7 @@ export default class MainVideoPage extends React.Component {
   };
 
   render() {
+    let { videoId } = this.props.match.params;
     console.log(this.state.selectedVideo);
     return this.state.selectedVideo ? (
       <>
