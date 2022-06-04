@@ -25,6 +25,11 @@ export default class MainVideoPage extends React.Component {
     });
   }
 
+  componentDidUpdate (prevProps, prevState){
+
+    
+  }
+
   selectVideo = async (videoId) => {
     let response = await getVideoWithId(videoId);
     let { data: activeVideo } = response;
@@ -40,8 +45,6 @@ export default class MainVideoPage extends React.Component {
   };
 
   render() {
-    console.log(this.state.selectedVideo);
-
     return this.state.selectedVideo ? (
       <>
         <Header />
