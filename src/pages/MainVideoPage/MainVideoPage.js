@@ -19,18 +19,17 @@ export default class MainVideoPage extends React.Component {
     let { data: videosFromApi } = await getVideos();
     let { data: video } = await getVideoWithId(videosFromApi[0].id);
 
-    console.log(video);
     this.setState({
       videos: videosFromApi,
       selectedVideo: video,
     });
   }
 
-  selectVideo = (videoId) => {
+  selectVideo = async (videoId) => {
+    let response = await getVideoWithId(videoId);
+    let { data: activeVideo } = response;
     this.setState({
-      selectedVideo: this.state.videos.find((video) => {
-        return video.id === videoId;
-      }),
+      selectedVideo: activeVideo,
     });
   };
 
@@ -41,8 +40,8 @@ export default class MainVideoPage extends React.Component {
   };
 
   render() {
-    let { videoId } = this.props.match.params;
     console.log(this.state.selectedVideo);
+
     return this.state.selectedVideo ? (
       <>
         <Header />

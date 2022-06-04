@@ -7,7 +7,6 @@ const API_QUERY = `?api_key=${API_KEY}`;
 
 function getVideos() {
   let query = `${BASE_URL}/videos/${API_QUERY}`;
-  console.log(query);
   let response = axios.get(query);
   return response;
 }

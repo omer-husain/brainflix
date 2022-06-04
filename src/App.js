@@ -3,9 +3,7 @@ import "./App.scss";
 import videoDetails from "./data/video-details.json";
 import MainVideoPage from "./pages/MainVideoPage/MainVideoPage";
 import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
-
 import React from "react";
-import apiKey from "./data/api-key.json";
 
 class App extends React.Component {
   render() {

@@ -2,6 +2,8 @@ import "./VideoCommentsForm.scss";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 export default function VideoCommentsForm({ videoData }) {
+
+  console.log(videoData.comments.length);
   let commentsLength = videoData.comments.length;
 
   return (
