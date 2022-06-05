@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 export default function NextVideo({ video, selectVideo }) {
   return (
     <Link to={`/videos/${video.id}`}>
-      <article
-        className="video-card"
-        onClick={() => {
-          selectVideo(video.id);
-        }}
-      >
+      <article className="video-card">
         <section className="video-card__col1">
           <img className="video-card__image" src={video.image} />
         </section>

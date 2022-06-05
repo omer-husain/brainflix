@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
-import videoDetails from "./data/video-details.json";
 import MainVideoPage from "./pages/MainVideoPage/MainVideoPage";
 import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
 import React from "react";
@@ -11,11 +10,11 @@ class App extends React.Component {
       <Router>
         <section className="App">
           <Switch>
-            <Route path="/" exact component={MainVideoPage} />
+            <Route path="/upload" component={VideoUploadPage} />
 
             <Route path="/videos/:videoId" component={MainVideoPage} />
 
-            <Route path="/upload" component={VideoUploadPage} />
+            <Route path="/" exact component={MainVideoPage} />
           </Switch>
         </section>
       </Router>

@@ -16,8 +16,13 @@ export default class MainVideoPage extends React.Component {
   };
 
   async componentDidMount() {
+    console.log("componentDidMount was called");
     let { data: videosFromApi } = await getVideos();
-    let { data: video } = await getVideoWithId(videosFromApi[0].id);
+
+    let { data: video } = this.props.match.params.videoId
+      ? await getVideoWithId(this.props.match.params.videoId)
+      : await getVideoWithId(videosFromApi[0].id);
+    window.scrollTo(0, 0);
 
     this.setState({
       videos: videosFromApi,
@@ -25,9 +30,23 @@ export default class MainVideoPage extends React.Component {
     });
   }
 
-  componentDidUpdate (prevProps, prevState){
+  async componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidupdate was called");
+    let preVideoId = prevProps.match.params.videoId;
+    let currentVideoId = this.props.match.params.videoId;
 
-    
+    console.log(`previous prop videoId: ${preVideoId}`);
+    console.log(`current prop videoId: ${currentVideoId}`);
+
+    if (currentVideoId !== preVideoId) {
+      console.log(`prop videoId was changed`);
+      window.scrollTo(0, 0);
+
+      let videoId = this.props.match.params.videoId || this.state.videos[0].id;
+      console.log(this.props.match.params.videoId);
+
+      this.selectVideo(videoId);
+    }
   }
 
   selectVideo = async (videoId) => {

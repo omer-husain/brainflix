@@ -3,7 +3,6 @@ import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 export default function VideoCommentsForm({ videoData }) {
 
-  console.log(videoData.comments.length);
   let commentsLength = videoData.comments.length;
 
   return (
@@ -15,7 +14,7 @@ export default function VideoCommentsForm({ videoData }) {
         </section>
 
         <form className="write-comments__col2-form" action="">
-          <label className="write-comments__form-label" for="textarea">
+          <label className="write-comments__form-label" htmlFor="textarea">
             JOIN THE CONVERSATION
           </label>
           <textarea
