@@ -24,4 +24,3 @@ class App extends React.Component {
 
 export default App;
 
-// <Route exact path="/props-through-render" render={(props) => <PropsPage {...props} title={`Props through render`} />} />
