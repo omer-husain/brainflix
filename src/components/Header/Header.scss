@@ -45,14 +45,15 @@
   }
 
   &__search {
-    background-color: colours.$Mercury;
-    border-color: colours.$Silver;
     height: 2.7rem;
     width: 82%;
     background: url(../../assets/icons/search.svg) no-repeat;
     padding: 0.75rem 0.75rem 0.75rem 2rem;
     background-position: 0.5rem 40%;
     border-radius: 4px;
+    border-color: colours.$Mercury;
+    background-color: colours.$Alabaster;
+    color: colours.$BrainFlix-Black;
 
     @include mixins.devices(tablet) {
       width: 60%;

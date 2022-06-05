@@ -1,0 +1,119 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/colours";
+@use "../../styles/partials/typography.scss" as type;
+@use "../../styles/partials/mixins";
+@use "sass:map";
+
+.upload-page {
+  margin: 0 variables.$margin-mobile-LR;
+
+  &__heading {
+    font-size: map.get(type.$mobile-page-header, "text-size");
+    line-height: map.get(type.$mobile-page-header, "line-height");
+    font-weight: map.get(type.$mobile-page-header, "text-weight");
+    margin-top: variables.$margin-top-headline-mobile;
+    margin-bottom: variables.$margin-bottom-headline-mobile;
+    padding-top: variables.$margin-top-headline-mobile;
+
+    @include mixins.devices(tablet) {
+      font-size: map.get(type.$tablet-page-header, "text-size");
+      line-height: map.get(type.$tablet-page-header, "line-height");
+      font-weight: map.get(type.$tablet-page-header, "text-weight");
+      margin-top: variables.$margin-top-headline-tablet;
+      margin-bottom: variables.$margin-bottom-headline-tablet;
+      padding-top: variables.$margin-top-headline-tablet;
+    }
+  }
+  &__thumbnail-label {
+    color: colours.$Silver;
+    font-size: map.get(type.$mobile-section-subheader, "text-size");
+    line-height: map.get(type.$mobile-section-subheader, "line-height");
+    font-weight: map.get(type.$mobile-section-subheader, "text-weight");
+    margin-bottom: 0.5rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 14rem;
+    border-radius: 8px;
+  }
+
+  &__title-label {
+    display: block;
+    color: colours.$Silver;
+    font-size: map.get(type.$mobile-section-subheader, "text-size");
+    line-height: map.get(type.$mobile-section-subheader, "line-height");
+    font-weight: map.get(type.$mobile-section-subheader, "text-weight");
+    margin-bottom: 0.5rem;
+  }
+
+  &__description-label {
+    display: block;
+    color: colours.$Silver;
+    font-size: map.get(type.$mobile-section-subheader, "text-size");
+    line-height: map.get(type.$mobile-section-subheader, "line-height");
+    font-weight: map.get(type.$mobile-section-subheader, "text-weight");
+    margin-bottom: 0.5rem;
+  }
+
+  &__title-input {
+    width: 100%;
+    border-color: colours.$Mercury;
+    background-color: colours.$Alabaster;
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: colours.$BrainFlix-Black;
+  }
+
+  &__video-description {
+    width: 100%;
+    border-color: colours.$Mercury;
+    background-color: colours.$Alabaster;
+    color: colours.$BrainFlix-Black;
+    border-radius: 4px;
+    padding: 0.5rem;
+    height: 6rem;
+    resize: none;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: map.get(type.$mobile-button-text, "text-size");
+    line-height: map.get(type.$mobile-button-text, "line-height");
+    font-weight: map.get(type.$mobile-button-text, "text-weight");
+    margin: 1rem 0;
+    color: colours.$White;
+    background-color: colours.$BrainFlix-Blue;
+    border: 0;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  &__cancel {
+    color: colours.$BrainFlix-Blue;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+}

@@ -1,6 +1,7 @@
 import Header from "../../components/Header/Header";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
+import "./VideoUploadPage.scss";
 
 export default function VideoUploadPage() {
   const handleSubmit = (event) => {
@@ -36,8 +37,8 @@ export default function VideoUploadPage() {
             id="videoDescription"
             placeholder="Add a description to your video"
           ></textarea>
-          <button>PUBLISH</button>
-          <a href="#">Cancel</a>
+          <button className="upload-page__button">PUBLISH</button>
+          <a className="upload-page__cancel" href="#">CANCEL</a>
         </form>
       </section>
     </>

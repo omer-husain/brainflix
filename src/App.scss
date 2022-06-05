@@ -1,5 +1,6 @@
 @use "./styles/partials/resets";
 @use "./styles/partials/fonts";
+@use "./styles/partials/colours";
 
 body {
   display: flex;
@@ -7,4 +8,8 @@ body {
   font-family: fonts.$font-name;
   min-width: 100%;
   min-height: 100vh;
+}
+
+::placeholder {
+  color: colours.$BrainFlix-Black;
 }
