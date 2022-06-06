@@ -5,7 +5,7 @@
 .videoAnalytics {
   height: 5rem;
   margin: variables.$margin-mobile-between-components
-    variables.$margin-mobile-LR;
+  variables.$margin-mobile-LR;
 
   display: flex;
   flex-direction: row;
@@ -16,32 +16,16 @@
   border-bottom: 1px solid colours.$Silver;
 
   @include mixins.devices(tablet) {
-    margin: variables.$margin-tablet-between-components
-      variables.$margin-tablet-LR;
-    justify-content: space-between;
-  }
-
-  @include mixins.devices(tablet) {
-    margin: variables.$margin-tablet-between-components;
-    border-top: 0;
+    display: none;
   }
 
   &__by-channel {
     font-weight: 700;
     width: 50%;
-
-    @include mixins.devices(tablet) {
-      width: 15%;
-      order: 0;
-    }
   }
   &__views-container {
     color: colours.$Silver;
     width: 50%;
-    @include mixins.devices(tablet) {
-      width: 15%;
-      order: 1;
-    }
   }
   &__views-image {
     margin-right: 1rem;
@@ -49,17 +33,69 @@
   &__date {
     color: colours.$Silver;
     width: 50%;
-    @include mixins.devices(tablet) {
-      width: 15%;
-      order: 0;
-    }
   }
   &__likes-container {
     color: colours.$Silver;
     width: 50%;
+  }
+  &__likes-image {
+    margin-right: 1rem;
+  }
+}
+
+.videoAnalytics-large {
+  display: none;
+  @include mixins.devices(tablet) {
+    display: flex;
+    margin: variables.$margin-tablet-between-components
+    variables.$margin-tablet-LR;
+    justify-content: space-between;
+    border-top: 0;
+    align-items: center;
+    border-bottom: 1px solid colours.$Silver;
+    padding-bottom: 1rem;
+
+  }
+
+  &__column1 {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__column2 {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  &__by-channel {
+    font-weight: 700;
+
     @include mixins.devices(tablet) {
-      width: 15%;
-      order: 1;
+      width: 10rem;
+    }
+  }
+  &__date {
+    color: colours.$Silver;
+    @include mixins.devices(tablet) {
+      width: 5rem;
+    }
+  }
+
+  &__views-container {
+    color: colours.$Silver;
+
+    @include mixins.devices(tablet) {
+    }
+  }
+  &__views-image {
+    margin-right: 1rem;
+  }
+
+  &__likes-container {
+    color: colours.$Silver;
+
+    @include mixins.devices(tablet) {
     }
   }
   &__likes-image {
