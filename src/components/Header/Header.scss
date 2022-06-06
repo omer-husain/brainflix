@@ -9,8 +9,12 @@
 
   @include mixins.devices(tablet) {
     display: flex;
-
+    gap: 5rem;
     margin: 0 variables.$margin-tablet-LR;
+  }
+
+  @include mixins.devices(desktop) {
+    gap: 30rem;
   }
 
   &__nav {
@@ -26,11 +30,27 @@
     padding: 1rem;
   }
 
-  &__form {
+  &__form1 {
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+  &__form2 {
+    display: none;
     @include mixins.devices(tablet) {
       display: flex;
+      justify-content: flex-end;
       width: 100%;
       align-items: center;
+      gap: 1rem;
+
+    }
+  }
+
+  &__link {
+    width: 100%;
+    @include mixins.devices(tablet) {
+      width: 8rem;
     }
   }
 
@@ -38,9 +58,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     @include mixins.devices(tablet) {
-      display: flex;
-      justify-content: space-evenly;
+      display: none;
     }
   }
 
@@ -56,8 +76,7 @@
     color: colours.$BrainFlix-Black;
 
     @include mixins.devices(tablet) {
-      width: 60%;
-      order: 1;
+      width: 15rem;
     }
   }
 
@@ -66,7 +85,6 @@
     height: 3.2rem;
     border-radius: 50%;
     @include mixins.devices(tablet) {
-      order: 3;
     }
   }
 
@@ -91,8 +109,6 @@
     }
 
     @include mixins.devices(tablet) {
-      width: 25%;
-      order: 2;
     }
   }
 

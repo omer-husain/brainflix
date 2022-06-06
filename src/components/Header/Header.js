@@ -14,7 +14,7 @@ function Header() {
         </Link>
       </nav>
 
-      <form className="header__form">
+      <form className="header__form1">
         <section className="header__row1">
           <input
             className="header__search"
@@ -29,6 +29,21 @@ function Header() {
             UPLOAD
           </button>
         </Link>
+      </form>
+      <form className="header__form2">
+        <input
+          className="header__search"
+          alt="Search"
+          placeholder="Search"
+        ></input>
+        <Link className="header__link" to="/upload">
+          <button className="header__upload-button">
+            <img className="header__upload-icon" src={uploadIcon} />
+            UPLOAD
+          </button>
+        </Link>
+
+        <img className="header__avatar" src={avatar}></img>
       </form>
     </section>
   );
