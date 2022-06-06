@@ -14,6 +14,7 @@
     margin-top: variables.$margin-top-headline-mobile;
     margin-bottom: variables.$margin-bottom-headline-mobile;
     padding-top: variables.$margin-top-headline-mobile;
+    border-top: 1px solid colours.$Silver;
 
     @include mixins.devices(tablet) {
       font-size: map.get(type.$tablet-page-header, "text-size");
@@ -22,6 +23,25 @@
       margin-top: variables.$margin-top-headline-tablet;
       margin-bottom: variables.$margin-bottom-headline-tablet;
       padding-top: variables.$margin-top-headline-tablet;
+    }
+  }
+
+  &__columns {
+    @include mixins.devices(desktop) {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &__col1 {
+      @include mixins.devices(desktop) {
+        width: 50%;
+      }
+    }
+    &__col2 {
+      @include mixins.devices(desktop) {
+        width: 50%;
+      }
     }
   }
   &__thumbnail-label {
@@ -34,8 +54,14 @@
 
   &__image {
     width: 100%;
-    height: 14rem;
+    height: auto;
     border-radius: 8px;
+    object-fit: contain;
+
+    @include mixins.devices(tablet) {
+      width: 50%;
+      height: auto;
+    }
   }
 
   &__title-label {
@@ -76,6 +102,15 @@
     resize: none;
   }
 
+  &__last-row {
+    display: block;
+    @include mixins.devices(tablet) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
   &__button {
     display: flex;
     align-items: center;
@@ -91,6 +126,11 @@
     height: 2.5rem;
     border-radius: 4px;
     position: relative;
+    @include mixins.devices(tablet) {
+      width: 8rem;
+      display: inline;
+      order: 1;
+    }
   }
 
   &__cancel {
@@ -99,6 +139,11 @@
     display: block;
     width: 100%;
     text-align: center;
+    @include mixins.devices(tablet) {
+      display: inline;
+      width: 8rem;
+      order: 0;
+    }
   }
 
   a:link {
