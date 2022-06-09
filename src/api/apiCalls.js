@@ -1,18 +1,16 @@
 import axios from "axios";
-import apiKey from "../data/api-key.json";
+let API_PORT = 8080;
 
-const BASE_URL = `https://project-2-api.herokuapp.com`;
-const API_KEY = apiKey.api_key;
-const API_QUERY = `?api_key=${API_KEY}`;
+const BASE_URL = `http://localhost:${API_PORT}`;
 
 function getVideos() {
-  let query = `${BASE_URL}/videos/${API_QUERY}`;
+  let query = `${BASE_URL}/videos/`;
   let response = axios.get(query);
   return response;
 }
 
 function getVideoWithId(videoId) {
-  let query = `${BASE_URL}/videos/${videoId}${API_QUERY}`;
+  let query = `${BASE_URL}/videos/${videoId}`;
   let response = axios.get(query);
   return response;
 }
