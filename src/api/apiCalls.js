@@ -15,4 +15,10 @@ function getVideoWithId(videoId) {
   return response;
 }
 
-export { getVideos, getVideoWithId };
+function postVideo(payload) {
+  let query = `${BASE_URL}/videos/`;
+  let response = axios.post(query, payload);
+  return response;
+}
+
+export { getVideos, getVideoWithId, postVideo };

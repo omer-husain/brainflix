@@ -2,11 +2,23 @@ import Header from "../../components/Header/Header";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import { Link, useHistory } from "react-router-dom";
 import "./VideoUploadPage.scss";
+import axios from "axios";
+import { postVideo } from "../../api/apiCalls";
 
 export default function VideoUploadPage() {
   const history = useHistory();
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    let payLoad = {
+      title: event.target.title.value,
+      description: event.target.description.value,
+    };
+
+    console.log(payLoad);
+
+    let response = await postVideo(payLoad);
+
     history.push("/");
   };
 
@@ -31,6 +43,7 @@ export default function VideoUploadPage() {
                 id="videoTitle"
                 type="text"
                 placeholder="Add a title to your video"
+                name="title"
               ></input>
               <label
                 className="upload-page__description-label"
@@ -42,6 +55,7 @@ export default function VideoUploadPage() {
                 className="upload-page__video-description"
                 id="videoDescription"
                 placeholder="Add a description to your video"
+                name="description"
               ></textarea>
               <section className="upload-page__last-row">
                 <button className="upload-page__button">PUBLISH</button>
