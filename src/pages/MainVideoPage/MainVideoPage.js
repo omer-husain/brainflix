@@ -7,6 +7,7 @@ import VideoCommentsForm from "../../components/VideoCommentsForm/VideoCommentsF
 import VideoCommentsList from "../../components/VideoCommentsList/VideoCommentsList";
 import NextVideosList from "../../components/NextVideosList/NextVideosList";
 import { getVideos, getVideoWithId } from "../../api/apiCalls";
+import "./MainVideoPage.scss";
 
 //class component that uses state to store videos pulled from API calls to back-end server
 //that are passed in from getVideos and getVideoWithID functions in ApiCalls.js
@@ -48,7 +49,7 @@ export default class MainVideoPage extends React.Component {
     }
   }
 
-  //gets data from Api call and sets state of selectedVideo  
+  //gets data from Api call and sets state of selectedVideo
   selectVideo = async (videoId) => {
     let response = await getVideoWithId(videoId);
     let { data: activeVideo } = response;
@@ -66,15 +67,19 @@ export default class MainVideoPage extends React.Component {
 
   render() {
     return this.state.selectedVideo ? (
-      <>
-        <MainVideo image={this.state.selectedVideo.image} />
-        <VideoTitle title={this.state.selectedVideo.title} />
-        <VideoAnalytics videoData={this.state.selectedVideo} />
-        <VideoDescription videoData={this.state.selectedVideo} />
-        <VideoCommentsForm videoData={this.state.selectedVideo} />
-        <VideoCommentsList videoData={this.state.selectedVideo} />
-        <NextVideosList videos={this.filterVideoList()} />
-      </>
+      <section className="main-page">
+        <section className="main-page__main-video">
+          <MainVideo image={this.state.selectedVideo.image} />
+          <VideoTitle title={this.state.selectedVideo.title} />
+          <VideoAnalytics videoData={this.state.selectedVideo} />
+          <VideoDescription videoData={this.state.selectedVideo} />
+          <VideoCommentsForm videoData={this.state.selectedVideo} />
+          <VideoCommentsList videoData={this.state.selectedVideo} />
+        </section>
+        <section className="main-page__video-list">
+          <NextVideosList videos={this.filterVideoList()} />
+        </section>
+      </section>
     ) : (
       <span>Loading page</span>
     );

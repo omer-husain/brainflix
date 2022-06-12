@@ -1,6 +1,12 @@
 @use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
 
 .next-videos {
   margin: variables.$margin-mobile-between-components
     variables.$margin-mobile-LR;
+
+    @include mixins.devices(desktop) {
+      padding-left: 2rem;
+      border-left: black solid 1px;
+    }
 }

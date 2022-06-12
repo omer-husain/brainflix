@@ -21,4 +21,6 @@
     padding-top: variables.$margin-top-headline-tablet;
     margin: 0 variables.$margin-tablet-LR;
   }
+  @include mixins.devices(desktop) {
+  }
 }

@@ -45,6 +45,7 @@ class VideoUploadPage extends Component {
   //submit form handler
   handleSubmit = async (event) => {
     event.preventDefault();
+
     let payLoad = {
       title: event.target.title.value,
       description: event.target.description.value,

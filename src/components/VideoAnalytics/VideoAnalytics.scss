@@ -55,7 +55,12 @@
     border-bottom: 1px solid colours.$Silver;
     padding-bottom: 1rem;
 
+  @include mixins.devices(desktop){
+   
   }
+  } 
+
+
 
   &__column1 {
     width: 50%;
