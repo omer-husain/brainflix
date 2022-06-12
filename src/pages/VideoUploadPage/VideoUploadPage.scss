@@ -26,6 +26,10 @@
     }
   }
 
+  &__alert{
+    height: 10rem;
+  }
+
   &__columns {
     @include mixins.devices(desktop) {
       width: 100%;

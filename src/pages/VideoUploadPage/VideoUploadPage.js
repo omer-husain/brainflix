@@ -1,12 +1,17 @@
-import Header from "../../components/Header/Header";
+import { useState } from "react";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./VideoUploadPage.scss";
-import axios from "axios";
 import { postVideo } from "../../api/apiCalls";
+import MyAlert from "../../components/MyAlert/MyAlert";
 
-export default function VideoUploadPage() {
+function VideoUploadPage() {
+  const [uploadStatus, setUploadStatus] = useState(null);
   const history = useHistory();
+  let alertMessages = {
+    success: "Video Uploaded Successfully",
+    error: "The video did not upload",
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,17 +20,36 @@ export default function VideoUploadPage() {
       description: event.target.description.value,
     };
 
-    console.log(payLoad);
-
-    let response = await postVideo(payLoad);
-
-    history.push("/");
+    try {
+      let response = await postVideo(payLoad);
+      console.log(response);
+      setUploadStatus(true);
+      setTimeout(() => {
+        history.push("/");
+      }, 3000); //success on screen for 3 secs before redirect
+    } catch (error) {
+      setUploadStatus(false);
+      setTimeout(() => {
+        setUploadStatus(null);
+      }, 5000); //error on screen for 5 secs
+    }
   };
 
   return (
     <>
       <section className="upload-page">
         <h1 className="upload-page__heading">Upload Video</h1>
+        {uploadStatus && (
+          <MyAlert message={alertMessages.success} status={"success"} />
+        )}
+
+        {uploadStatus === false && (
+          <MyAlert
+            message={alertMessages.error}
+            status={"error"}
+            errorDescription={alertMessages.description}
+          />
+        )}
 
         <section className="upload-page__columns">
           <section className="upload-page__col1">
@@ -69,3 +93,5 @@ export default function VideoUploadPage() {
     </>
   );
 }
+
+export default VideoUploadPage;
