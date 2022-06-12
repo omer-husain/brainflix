@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./VideoUploadPage.scss";
 import { postVideo } from "../../api/apiCalls";
 import MyAlert from "../../components/MyAlert/MyAlert";
+import { Link } from "react-router-dom";
 
 function VideoUploadPage() {
   const [uploadStatus, setUploadStatus] = useState(null);
@@ -84,9 +85,9 @@ function VideoUploadPage() {
                 <button type="submit" className="upload-page__button">
                   PUBLISH
                 </button>
-                <a className="upload-page__cancel" href="#">
+                <Link to={"/"} className="upload-page__cancel">
                   CANCEL
-                </a>
+                </Link>
               </section>
             </form>
           </section>
