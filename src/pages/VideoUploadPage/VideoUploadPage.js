@@ -81,7 +81,9 @@ function VideoUploadPage() {
                 name="description"
               ></textarea>
               <section className="upload-page__last-row">
-                <button className="upload-page__button">PUBLISH</button>
+                <button type="submit" className="upload-page__button">
+                  PUBLISH
+                </button>
                 <a className="upload-page__cancel" href="#">
                   CANCEL
                 </a>
