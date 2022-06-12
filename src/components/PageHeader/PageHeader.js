@@ -1,11 +1,11 @@
-import "./Header.scss";
+import "./PageHeader.scss";
 import logo from "../../assets/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import searchIcon from "../../assets/icons/search.svg";
 import { Link } from "react-router-dom";
 
-function Header() {
+function PageHeader() {
   return (
     <section className="header">
       <nav className="header__nav">
@@ -49,4 +49,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PageHeader;

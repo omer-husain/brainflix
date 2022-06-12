@@ -1,7 +1,7 @@
 import "./NextVideo.scss";
 import { Link } from "react-router-dom";
 
-export default function NextVideo({ video, selectVideo }) {
+export default function NextVideo({ video}) {
   return (
     <Link to={`/videos/${video.id}`}>
       <article className="video-card">
