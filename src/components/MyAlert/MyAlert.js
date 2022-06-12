@@ -5,7 +5,10 @@ import {
   AlertDescription,
 } from "@chakra-ui/react";
 
-function MyAlert({ message, status, errDescription }) {
+// uses third party libray to quickly generate alert message, styling taken care of, passing in
+// message, status to generate different alerts
+
+function MyAlert({ message, status }) {
   return (
     <>
       <Alert
@@ -21,7 +24,6 @@ function MyAlert({ message, status, errDescription }) {
         <AlertTitle mt={4} mb={1} fontSize="lg">
           {message}
         </AlertTitle>
-        <AlertDescription maxWidth="sm">{errDescription}</AlertDescription>
       </Alert>
     </>
   );

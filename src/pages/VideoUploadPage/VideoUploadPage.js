@@ -5,11 +5,24 @@ import { postVideo } from "../../api/apiCalls";
 import MyAlert from "../../components/MyAlert/MyAlert";
 import { Component } from "react";
 
-class VideoUploadPage extends Component {
-  state = {
-    uploadStatus: null,
-  };
+//upload page used to pass information for POST request to back-end api.
+//form using state to track inputs title and description along with upload status
+//react control form
 
+class VideoUploadPage extends Component {
+  constructor(props) {
+    super(props);
+
+    //passing inputs into state
+    this.state = {
+      uploadStatus: null,
+      title: "",
+      description: "",
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  //update title after first render
   componentDidMount() {
     document.title = "Main Video Page";
   }
@@ -19,6 +32,17 @@ class VideoUploadPage extends Component {
     error: "The video did not upload",
   };
 
+  //handles multiple input onChange and sets new state
+  handleInputChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  //submit form handler
   handleSubmit = async (event) => {
     event.preventDefault();
     let payLoad = {
@@ -61,7 +85,11 @@ class VideoUploadPage extends Component {
           <section className="upload-page__columns">
             <section className="upload-page__col1">
               <h3 className="upload-page__thumbnail-label">VIDEO THUMBNAIL</h3>
-              <img className="upload-page__image" src={thumbnail}></img>
+              <img
+                className="upload-page__image"
+                src={thumbnail}
+                alt="upload image"
+              ></img>
             </section>
             <section className="upload-page__col2">
               <form onSubmit={this.handleSubmit}>
@@ -77,6 +105,8 @@ class VideoUploadPage extends Component {
                   type="text"
                   placeholder="Add a title to your video"
                   name="title"
+                  value={this.state.title}
+                  onChange={this.handleInputChange}
                 ></input>
                 <label
                   className="upload-page__description-label"
@@ -89,6 +119,8 @@ class VideoUploadPage extends Component {
                   id="videoDescription"
                   placeholder="Add a description to your video"
                   name="description"
+                  value={this.state.description}
+                  onChange={this.handleInputChange}
                 ></textarea>
                 <section className="upload-page__last-row">
                   <button type="submit" className="upload-page__button">

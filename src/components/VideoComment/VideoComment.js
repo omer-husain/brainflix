@@ -1,5 +1,8 @@
 import greyAvator from "../../assets/images/grey1.png";
 
+//VideoComment component takes info from VideoComments list component as props comment
+//displays comments with name, timestamp and comment text
+
 export default function VideoComment({ comment }) {
   return (
     <article className="display-comments__card">

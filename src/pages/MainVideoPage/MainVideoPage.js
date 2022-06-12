@@ -8,12 +8,16 @@ import VideoCommentsList from "../../components/VideoCommentsList/VideoCommentsL
 import NextVideosList from "../../components/NextVideosList/NextVideosList";
 import { getVideos, getVideoWithId } from "../../api/apiCalls";
 
+//class component that uses state to store videos pulled from API calls to back-end server
+//that are passed in from getVideos and getVideoWithID functions in ApiCalls.js
+
 export default class MainVideoPage extends React.Component {
   state = {
     videos: [],
     selectedVideo: null,
   };
 
+  //loads after first render, runs Api calls and checks if react router changed params
   async componentDidMount() {
     document.title = "Main Video Page";
     let { data: videosFromApi } = await getVideos();
@@ -21,6 +25,7 @@ export default class MainVideoPage extends React.Component {
     let { data: video } = this.props.match.params.videoId
       ? await getVideoWithId(this.props.match.params.videoId)
       : await getVideoWithId(videosFromApi[0].id);
+
     window.scrollTo(0, 0);
 
     this.setState({
@@ -29,6 +34,7 @@ export default class MainVideoPage extends React.Component {
     });
   }
 
+  //checks if props are changed by react router and if so updates video id
   async componentDidUpdate(prevProps, prevState) {
     let preVideoId = prevProps.match.params.videoId;
     let currentVideoId = this.props.match.params.videoId;
@@ -42,6 +48,7 @@ export default class MainVideoPage extends React.Component {
     }
   }
 
+  //gets data from Api call and sets state of selectedVideo  
   selectVideo = async (videoId) => {
     let response = await getVideoWithId(videoId);
     let { data: activeVideo } = response;
@@ -50,6 +57,7 @@ export default class MainVideoPage extends React.Component {
     });
   };
 
+  //filters video list to make sure active video is not displayed
   filterVideoList = () => {
     return this.state.videos.filter((video) => {
       return video.id !== this.state.selectedVideo.id;
@@ -65,10 +73,7 @@ export default class MainVideoPage extends React.Component {
         <VideoDescription videoData={this.state.selectedVideo} />
         <VideoCommentsForm videoData={this.state.selectedVideo} />
         <VideoCommentsList videoData={this.state.selectedVideo} />
-        <NextVideosList
-          videos={this.filterVideoList()}
-          selectVideo={this.selectVideo}
-        />
+        <NextVideosList videos={this.filterVideoList()} />
       </>
     ) : (
       <span>Loading page</span>

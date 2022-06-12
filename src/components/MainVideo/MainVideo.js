@@ -1,5 +1,6 @@
 import "./MainVideo.scss";
 
+//Returns a video tag and displays image as poster passed in as prop
 
 function MainVideo({ image }) {
   return (

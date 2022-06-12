@@ -2,6 +2,9 @@ import "./VideoAnalytics.scss";
 import likes from "../../assets/icons/likes.svg";
 import views from "../../assets/icons/views.svg";
 
+//Video analytics component. takes VideoData prop and displays channel, timestamp, vuews and likes
+//info generated and passed in from MainPAge component
+
 export default function VideoAnalytics({ videoData }) {
   return (
     <>
@@ -10,7 +13,11 @@ export default function VideoAnalytics({ videoData }) {
           by {videoData.channel}
         </label>
         <article className="videoAnalytics__views-container">
-          <img className="videoAnalytics__views-image" src={views}></img>
+          <img
+            className="videoAnalytics__views-image"
+            src={views}
+            alt="views image"
+          ></img>
           <label className="videoAnalytics__views-data">
             {videoData.views}
           </label>
@@ -19,7 +26,11 @@ export default function VideoAnalytics({ videoData }) {
           {new Date(videoData.timestamp).toLocaleDateString()}
         </time>
         <article className="videoAnalytics__likes-container">
-          <img className="videoAnalytics__likes-image" src={likes}></img>
+          <img
+            className="videoAnalytics__likes-image"
+            src={likes}
+            alt="likes image"
+          ></img>
           <label className="videoAnalytics__likes-data">
             {videoData.likes}
           </label>
@@ -41,6 +52,7 @@ export default function VideoAnalytics({ videoData }) {
             <img
               className="videoAnalytics-large__views-image"
               src={views}
+              alt="views image"
             ></img>
             <label className="videoAnalytics-large__views-data">
               {videoData.views}
@@ -50,6 +62,7 @@ export default function VideoAnalytics({ videoData }) {
             <img
               className="videoAnalytics-large__likes-image"
               src={likes}
+              alt="likes image"
             ></img>
             <label className="videoAnalytics-large__likes-data">
               {videoData.likes}

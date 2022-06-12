@@ -5,12 +5,15 @@ import uploadIcon from "../../assets/icons/upload.svg";
 import searchIcon from "../../assets/icons/search.svg";
 import { Link } from "react-router-dom";
 
+//PageHeader Component that serves as navigation for all pages. outside of react-router links
+//renders on top of all pages
+
 function PageHeader() {
   return (
     <section className="header">
       <nav className="header__nav">
         <Link to="/">
-          <img className="header__logo" src={logo}></img>
+          <img className="header__logo" src={logo} alt="logo"></img>
         </Link>
       </nav>
 
@@ -21,11 +24,15 @@ function PageHeader() {
             alt="Search"
             placeholder="Search"
           ></input>
-          <img className="header__avatar" src={avatar}></img>
+          <img className="header__avatar" src={avatar} alt="avatar"></img>
         </section>
         <Link to="/upload">
           <button className="header__upload-button">
-            <img className="header__upload-icon" src={uploadIcon} />
+            <img
+              className="header__upload-icon"
+              src={uploadIcon}
+              alt="Upload Icon"
+            />
             UPLOAD
           </button>
         </Link>
@@ -38,12 +45,16 @@ function PageHeader() {
         ></input>
         <Link className="header__link" to="/upload">
           <button className="header__upload-button">
-            <img className="header__upload-icon" src={uploadIcon} />
+            <img
+              className="header__upload-icon"
+              src={uploadIcon}
+              alt="Upload Icon"
+            />
             UPLOAD
           </button>
         </Link>
 
-        <img className="header__avatar" src={avatar}></img>
+        <img className="header__avatar" src={avatar} alt="avatar"></img>
       </form>
     </section>
   );
