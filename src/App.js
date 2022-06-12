@@ -3,11 +3,15 @@ import "./App.scss";
 import MainVideoPage from "./pages/MainVideoPage/MainVideoPage";
 import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
 import React from "react";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <Router>
       <section className="App">
+        
+        <Header />  {/* Nav component */}
+        
         <Switch>
           <Route path="/upload" component={VideoUploadPage} />
 

@@ -24,7 +24,6 @@ export default function VideoUploadPage() {
 
   return (
     <>
-      <Header />
       <section className="upload-page">
         <h1 className="upload-page__heading">Upload Video</h1>
 

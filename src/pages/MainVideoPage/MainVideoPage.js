@@ -66,7 +66,6 @@ export default class MainVideoPage extends React.Component {
   render() {
     return this.state.selectedVideo ? (
       <>
-        <Header />
         <MainVideo image={this.state.selectedVideo.image} />
         <VideoTitle title={this.state.selectedVideo.title} />
         <VideoAnalytics videoData={this.state.selectedVideo} />
