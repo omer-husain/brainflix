@@ -34,7 +34,8 @@
     @include mixins.devices(desktop) {
       width: 100%;
       display: flex;
-      justify-content: space-around;
+      
+      // justify-content: space-around;
     }
 
     &__col1 {

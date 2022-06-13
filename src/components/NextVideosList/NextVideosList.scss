@@ -5,8 +5,10 @@
   margin: variables.$margin-mobile-between-components
     variables.$margin-mobile-LR;
 
-    @include mixins.devices(desktop) {
-      padding-left: 2rem;
-      border-left: black solid 1px;
-    }
+
+
+  @include mixins.devices(desktop) {
+    padding-left: 2rem;
+    border-left: black solid 1px;
+  }
 }
