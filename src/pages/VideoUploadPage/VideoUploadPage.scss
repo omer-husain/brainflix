@@ -6,6 +6,12 @@
 
 .upload-page {
   margin: 0 variables.$margin-mobile-LR;
+  @include mixins.devices(tablet) {
+    margin: 0 5rem;
+  }
+  @include mixins.devices(desktop) {
+    margin: 0 8rem;
+  }
 
   &__heading {
     font-size: map.get(type.$mobile-page-header, "text-size");
@@ -26,21 +32,18 @@
     }
   }
 
-  &__alert{
+  &__alert {
     height: 10rem;
   }
 
   &__columns {
     @include mixins.devices(desktop) {
-      width: 100%;
       display: flex;
-      
-      // justify-content: space-around;
     }
 
     &__col1 {
       @include mixins.devices(desktop) {
-        width: 50%;
+        max-width: fit-content;
       }
     }
     &__col2 {
@@ -64,6 +67,12 @@
     object-fit: contain;
 
     @include mixins.devices(tablet) {
+      width: 50%;
+      height: auto;
+    }
+
+    @include mixins.devices(desktop) {
+      display: inline-block;
       width: 50%;
       height: auto;
     }
@@ -107,6 +116,10 @@
     resize: none;
   }
 
+  &__description-label {
+    margin: 0.8rem 0;
+  }
+
   &__last-row {
     display: block;
     @include mixins.devices(tablet) {
@@ -128,14 +141,25 @@
     background-color: colours.$BrainFlix-Blue;
     border: 0;
     width: 100%;
+
     height: 2.5rem;
     border-radius: 4px;
     position: relative;
+
+    &:hover {
+      background-color: colours.$BrainFlix-DarkBlue;
+    }
     @include mixins.devices(tablet) {
       width: 8rem;
       display: inline;
       order: 1;
     }
+  }
+
+  &__icon {
+    margin-left: 1rem;
+    position: absolute;
+    left: 0;
   }
 
   &__cancel {

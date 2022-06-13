@@ -1,6 +1,7 @@
 @use "../../styles/partials/typography" as t;
 @use "../../styles/partials/colours";
 @use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
 @use "sass:map";
 
 .display-comments {
@@ -12,6 +13,13 @@
   line-height: map.get(t.$mobile-body-copy, "line-height");
   font-weight: map.get(t.$mobile-body-copy, "text-weight");
 
+  @include mixins.devices(tablet) {
+    margin: 0 variables.$margin-tablet-LR;
+    font-size: map.get(t.$tablet-body-copy, "text-size");
+    line-height: map.get(t.$tablet-body-copy, "line-height");
+    font-weight: map.get(t.$tablet-body-copy, "text-weight");
+  }
+
   &__card {
     width: 100%;
     display: flex;
@@ -21,7 +29,7 @@
   }
 
   &__card-col1 {
-    width: 20%;
+    width: 15%;
     margin: auto;
   }
 
@@ -66,5 +74,10 @@
   }
   &__delete-button {
     margin: 0 0 0 1rem;
+  }
+  &__comment-text {
+    margin-bottom: 1rem;
+    color: colours.$BrainFlix-Black;
+    font-weight: 600;
   }
 }

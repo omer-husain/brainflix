@@ -1,20 +1,26 @@
 @use "../../styles/partials/mixins";
 
 .main-page {
-  @include mixins.devices(desktop) {
-    display: flex;
-    flex-direction: row;
+  &__below-video {
+    @include mixins.devices(tablet) {
+      margin: 0 5rem;
+    }
+    @include mixins.devices(desktop) {
+      display: flex;
+      flex-direction: row;
+      margin: 0 8rem;
+    }
   }
 
   &__main-video {
     @include mixins.devices(desktop) {
-      width: 65%;
+      width: 70%;
     }
   }
 
   &__video-list {
     @include mixins.devices(desktop) {
-      width: auto;
+      width: 30%;
     }
   }
 }

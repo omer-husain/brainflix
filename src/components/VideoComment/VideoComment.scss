@@ -74,4 +74,9 @@
   &__delete-button {
     margin: 0 0 0 1rem;
   }
+  &__comment-text {
+    margin-bottom: 1rem;
+    color: colours.$BrainFlix-Black;
+    font-weight: 700;
+  }
 }

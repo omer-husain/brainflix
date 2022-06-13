@@ -35,7 +35,7 @@
     height: 100%;
     border-radius: 5%;
     @include mixins.devices(desktop) {
-      width: 9rem;
+      width: 8rem;
       height: 5rem;
     }
   }
@@ -57,10 +57,12 @@
     font-size: map.get(t.$tablet-section-subheader, "text-size");
     line-height: map.get(t.$tablet-section-subheader, "line-height");
     font-weight: map.get(t.$tablet-section-subheader, "text-weight");
+    width: 100%;
   }
   &__channel {
     font-size: map.get(t.$tablet-section-header, "text-size");
     line-height: map.get(t.$tablet-section-header, "line-height");
     font-weight: map.get(t.$tablet-section-header, "text-weight");
+    width: 100%;
   }
 }

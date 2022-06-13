@@ -68,16 +68,21 @@ export default class MainVideoPage extends React.Component {
   render() {
     return this.state.selectedVideo ? (
       <section className="main-page">
-        <section className="main-page__main-video">
-          <MainVideo image={this.state.selectedVideo.image} />
-          <VideoTitle title={this.state.selectedVideo.title} />
-          <VideoAnalytics videoData={this.state.selectedVideo} />
-          <VideoDescription videoData={this.state.selectedVideo} />
-          <VideoCommentsForm videoData={this.state.selectedVideo} />
-          <VideoCommentsList videoData={this.state.selectedVideo} />
-        </section>
-        <section className="main-page__video-list">
-          <NextVideosList videos={this.filterVideoList()} />
+        <MainVideo
+          className="main-page__main-video"
+          image={this.state.selectedVideo.image}
+        />
+        <section className="main-page__below-video">
+          <section className="main-page__main-details">
+            <VideoTitle title={this.state.selectedVideo.title} />
+            <VideoAnalytics videoData={this.state.selectedVideo} />
+            <VideoDescription videoData={this.state.selectedVideo} />
+            <VideoCommentsForm videoData={this.state.selectedVideo} />
+            <VideoCommentsList videoData={this.state.selectedVideo} />
+          </section>
+          <section className="main-page__video-list">
+            <NextVideosList videos={this.filterVideoList()} />
+          </section>
         </section>
       </section>
     ) : (

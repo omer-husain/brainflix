@@ -1,5 +1,6 @@
 import "./VideoCommentsForm.scss";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
+import addIcon from "../../assets/icons/add_comment.svg";
 
 //Component that allows for comment submission. Not functional form as not part of requirements
 
@@ -23,7 +24,10 @@ export default function VideoCommentsForm({ videoData }) {
             id="textarea"
             placeholder="Add a new comment"
           ></textarea>
-          <button className="write-comments__button">Comment</button>
+          <button className="write-comments__button">
+            <img className="write-comments__icon" src={addIcon}></img>
+            COMMENT
+          </button>
         </form>
       </section>
     </section>

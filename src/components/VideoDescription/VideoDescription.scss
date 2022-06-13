@@ -1,11 +1,22 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
+@use "../../styles/partials/colours";
+@use "sass:map";
+@use "../../styles/partials/typography" as t;
 
 .video-description {
+  font-size: 1rem;
+  color: colours.$BrainFlix-Black;
+  font-weight: 700;
   margin: variables.$margin-mobile-between-components
     variables.$margin-mobile-LR;
+  font-size: map.get(t.$mobile-body-copy, "text-size");
+  line-height: map.get(t.$mobile-body-copy, "line-height");
+
   @include mixins.devices(tablet) {
     margin: variables.$margin-tablet-between-components
       variables.$margin-tablet-LR;
+    font-size: map.get(t.$tablet-body-copy, "text-size");
+    line-height: map.get(t.$tablet-body-copy, "line-height");
   }
 }

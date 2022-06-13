@@ -1,14 +1,23 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
+@use "../../styles/partials/colours";
+@use "../../styles/partials/typography";
 
 .next-videos {
   margin: variables.$margin-mobile-between-components
     variables.$margin-mobile-LR;
 
+  &__heading {
+    color: colours.$Silver;
 
+    @include mixins.devices(tablet) {
+      margin-top: variables.$margin-top-headline-tablet;
+      font-size: 0.85rem;
+    }
+  }
 
   @include mixins.devices(desktop) {
     padding-left: 2rem;
-    border-left: black solid 1px;
+    border-left: colours.$Silver solid 1px;
   }
 }
